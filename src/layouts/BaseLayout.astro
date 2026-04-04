@@ -131,16 +131,18 @@ const ogD = ogDescription ?? description;
     </div>
   </footer>
 
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script>
+  <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script is:inline>
     // Netlify Identity redirect after login
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
+      window.netlifyIdentity.on("init", function(user) {
         if (!user) {
-          window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+          window.netlifyIdentity.on("login", function() { document.location.href = "/admin/"; });
         }
       });
     }
+  </script>
+  <script>
     const nb = document.getElementById("navbar");
     window.addEventListener("scroll", () => nb?.classList.toggle("scrolled", window.scrollY > 20));
     document.getElementById("mobileBtn")?.addEventListener("click", function() {
