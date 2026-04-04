@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<BaseLayout
+  title="Mental Health Blog | Mind Menders Psychiatric Care | Towson, MD"
+  description="Expert insights on ADHD, autism, anxiety, depression, and psychiatric care from Matthew Mauro, PMHNP-BC. Mental health education for patients and families in Maryland."
+  activeNav="blog"
+>
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow-white">Resources</span>
+    <h1>Mental Health Blog</h1>
+    <p>Evidence-based insights on psychiatric conditions, treatments, and mental wellness from Matthew Mauro, PMHNP-BC.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:860px">
+    {allPosts.length === 0 ? (
+      <div style="text-align:center;padding:var(--sp-16) 0">
+        <p class="lead">New articles coming soon. Check back shortly.</p>
+        <a href="/contact" class="btn btn-primary" style="margin-top:var(--sp-4)">Contact Us</a>
+      </div>
+    ) : (
+      <div class="blog-grid">
+        {allPosts.map(post => (
+          <a href={`/blog/${post.slug}`} class="blog-card">
+            <div class="blog-card-meta">
+              <span class="blog-date">{post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+              {post.data.tags && post.data.tags.slice(0,2).map(tag => (
+                <span class="blog-tag">{tag}</span>
+              ))}
+            </div>
+            <h2 class="blog-card-title">{post.data.title}</h2>
+            <p class="blog-card-excerpt">{post.data.description}</p>
+            <span class="card-link">Read more &#8594;</span>
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Have a Question?</h2>
+    <p>Reach out to schedule an evaluation or learn more about our services.</p>
+    <div class="cta-actions">
+      <a href="/contact" class="btn btn-white btn-lg">Contact Us</a>
+      <a href="/services" class="btn btn-outline-white btn-lg">Our Services</a>
+    </div>
+  </div>
+</section>
+</BaseLayout>
