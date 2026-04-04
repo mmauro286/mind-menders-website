@@ -38,6 +38,52 @@ const ogD = ogDescription ?? description;
   <meta name="twitter:title" content={ogT}>
   <meta name="twitter:description" content={ogD}>
   <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Matthew Mauro, PMHNP-BC | Mind Menders Psychiatric Care",
+    "description": "Compassionate psychiatric care for children, adolescents, and adults in Towson, Maryland. Specializing in ADHD, anxiety, depression, autism, bipolar disorder, PTSD, OCD, and schizophrenia.",
+    "url": "https://mindmenderz.com",
+    "telephone": "+14437987707",
+    "email": "mmauro@caapsych.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1200 E Joppa Rd, Suite A",
+      "addressLocality": "Towson",
+      "addressRegion": "MD",
+      "postalCode": "21286",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.4015,
+      "longitude": -76.5765
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "priceRange": "$$",
+    "image": "https://mindmenderz.com/logo-icon.png",
+    "medicalSpecialty": "Psychiatric",
+    "availableService": [
+      { "@type": "MedicalTherapy", "name": "Psychiatric Evaluation" },
+      { "@type": "MedicalTherapy", "name": "Medication Management" },
+      { "@type": "MedicalTherapy", "name": "Cognitive Behavioral Therapy" },
+      { "@type": "MedicalTherapy", "name": "Telehealth Psychiatry" }
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Matthew Mauro",
+      "jobTitle": "Psychiatric Mental Health Nurse Practitioner",
+      "credential": "PMHNP-BC"
+    },
+    "sameAs": []
+  })} />
 </head>
 <body>
   <div class="crisis-bar">In crisis? Call or text <a href="tel:988">988</a> or <a href="tel:911">911</a></div>

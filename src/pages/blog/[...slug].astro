@@ -52,6 +52,33 @@ const pubDate = post.data.pubDate.toLocaleDateString('en-US', {
   </div>
 </section>
 
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "datePublished": post.data.pubDate.toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": post.data.author || "Matthew Mauro, PMHNP-BC",
+    "url": "https://mindmenderz.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mind Menders Psychiatric Care",
+    "url": "https://mindmenderz.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://mindmenderz.com/logo-icon.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://mindmenderz.com/blog/${post.slug}`
+  },
+  "keywords": post.data.tags ? post.data.tags.join(", ") : undefined
+})} />
+
 <section class="cta-section">
   <div class="container">
     <h2>Ready to Get Started?</h2>

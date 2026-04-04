@@ -86,4 +86,51 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </div>
 </section>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I schedule an appointment?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Call us at (443) 798-7707, email mmauro@caapsych.com, or use the contact form on our website. New patients are currently being accepted." }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I expect at my first appointment?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Your first visit is a comprehensive psychiatric evaluation lasting approximately 60 minutes. Matthew will discuss your symptoms, medical and psychiatric history, current medications, family history, and treatment goals to develop a personalized care plan." }
+    },
+    {
+      "@type": "Question",
+      "name": "What insurance do you accept?",
+      "acceptedAnswer": { "@type": "Answer", "text": "We accept most major insurance plans including BlueCross BlueShield, Aetna, Cigna, United Healthcare, Medicaid, Medicare, and Tricare. Call (443) 798-7707 to verify your specific coverage." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer telehealth appointments?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, secure telehealth video appointments are available for patients throughout Maryland. Virtual visits provide the same quality of care as in-person appointments. All you need is a smartphone, tablet, or computer with a camera." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you treat children and adolescents?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, Matthew has extensive experience in child and adolescent psychiatry, including ADHD, autism spectrum disorder, anxiety, depression, and behavioral challenges. We welcome patients from early childhood through adulthood." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer self-pay options?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, self-pay options are available. Contact our office at (443) 798-7707 to discuss fees and payment arrangements." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I receive prescriptions through telehealth?",
+      "acceptedAnswer": { "@type": "Answer", "text": "In most cases, yes. Prescriptions for non-controlled medications can be sent electronically to your preferred pharmacy after a telehealth visit. Controlled substance prescriptions are subject to state and federal regulations." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my information kept confidential?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Mind Menders Psychiatric Care fully complies with all HIPAA privacy regulations. Your health information is protected and will not be shared without your written consent, except in specific circumstances required by law." }
+    }
+  ]
+})} />
 </BaseLayout>
