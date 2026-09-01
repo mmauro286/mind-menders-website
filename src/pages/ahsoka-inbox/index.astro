@@ -1,0 +1,49 @@
+---
+import AppInfoLayout from '../../layouts/AppInfoLayout.astro';
+---
+<AppInfoLayout
+  title="Ahsoka Inbox Assistant | Private Email Productivity Tool"
+  description="Ahsoka Inbox Assistant is a private, single-user tool for reviewing, organizing, securing, and responding to email."
+  canonical="https://mindmenderz.com/ahsoka-inbox"
+  activePage="overview"
+>
+  <section class="app-info-hero">
+    <p class="app-info-kicker">Personal-use desktop application</p>
+    <h1>A private email assistant with the account owner in control.</h1>
+    <p class="app-info-lede">Ahsoka Inbox Assistant helps one account owner review, organize, secure, and respond to email. It has no public signup and connects to a Google Account only after the owner grants permission.</p>
+  </section>
+
+  <section aria-labelledby="app-features">
+    <h2 id="app-features">What the application does</h2>
+    <div class="app-info-grid">
+      <article class="app-info-card">
+        <h3>Review and organize</h3>
+        <p>Reads messages and metadata to classify incoming mail, surface items for review, and carry out owner-requested actions such as labeling, marking read, archiving, moving to trash, or marking spam.</p>
+      </article>
+      <article class="app-info-card">
+        <h3>Prepare replies</h3>
+        <p>Creates and edits Gmail drafts. Sending requires a separate, explicit action by the account owner; the application does not autonomously send email.</p>
+      </article>
+      <article class="app-info-card">
+        <h3>Monitor account settings</h3>
+        <p>Reads Gmail settings and, when separately authorized, can correct selected filters or sharing settings as part of the owner’s security monitoring.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="app-info-disclosure" aria-labelledby="google-data-use">
+    <h2 id="google-data-use">How Google user data is used</h2>
+    <p>After explicit authorization, the application accesses only the Gmail messages, threads, metadata, labels, drafts, and settings needed for the features above. Content may be processed on private systems controlled by the owner and, when enabled, by Google Cloud services to classify mail and prepare suggested responses.</p>
+    <p>Email-derived learning signals are used only to improve the same owner’s private, personalized classifier. They are not used to train a shared or general-purpose artificial-intelligence model. Google user data is not sold, used for advertising, or provided to data brokers.</p>
+    <p>The use of information received from Google Workspace APIs adheres to the <a href="https://developers.google.com/workspace/workspace-api-user-data-developer-policy">Google Workspace API User Data and Developer Policy</a>, including its Limited Use requirements.</p>
+  </section>
+
+  <section class="app-info-contact" aria-labelledby="app-support">
+    <h2 id="app-support">Support and policies</h2>
+    <p>Questions about authorization, data use, or deletion can be sent to <a href="mailto:mmauro286@gmail.com">mmauro286@gmail.com</a>.</p>
+    <div class="app-info-actions">
+      <a class="app-info-button" href="/ahsoka-inbox/privacy">Read the privacy policy</a>
+      <a class="app-info-button secondary" href="/ahsoka-inbox/terms">Read the terms of service</a>
+    </div>
+  </section>
+</AppInfoLayout>

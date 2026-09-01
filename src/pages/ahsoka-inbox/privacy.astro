@@ -1,0 +1,51 @@
+---
+import AppInfoLayout from '../../layouts/AppInfoLayout.astro';
+---
+<AppInfoLayout
+  title="Privacy Policy | Ahsoka Inbox Assistant"
+  description="Privacy policy explaining how Ahsoka Inbox Assistant accesses, uses, stores, and protects Google user data."
+  canonical="https://mindmenderz.com/ahsoka-inbox/privacy"
+  activePage="privacy"
+>
+  <p class="app-info-kicker">Effective <time datetime="2026-08-31">August 31, 2026</time></p>
+  <h1>Privacy Policy</h1>
+  <p>Ahsoka Inbox Assistant is a private, personal-use application operated by Matthew Mauro. It is not offered as a public email service and has no public account-registration system. This policy explains how it handles Google user data when the account owner authorizes access.</p>
+
+  <h2>Data the application accesses</h2>
+  <ul>
+    <li>Gmail account identity, including the authorized email address.</li>
+    <li>Email messages and threads, including senders, recipients, dates, subjects, headers, snippets, bodies, attachments, and message identifiers.</li>
+    <li>Gmail labels, read state, spam and trash state, drafts, and related mailbox metadata.</li>
+    <li>Gmail filters, forwarding, delegation, and other security-relevant settings when the owner separately authorizes settings access.</li>
+    <li>OAuth access and refresh tokens needed to maintain the authorized connection.</li>
+    <li>Operational records such as action type, timestamp, message identifier, and hashed or presence-only metadata.</li>
+  </ul>
+
+  <h2>How the data is used</h2>
+  <p>The application uses Google user data only to provide email productivity and security features chosen by the account owner. These include scanning and classifying mail, displaying review tasks, preparing or editing drafts, carrying out owner-requested mailbox actions, and monitoring selected Gmail security settings.</p>
+  <p>Sending email requires an explicit owner action. The application does not autonomously send messages or take clinical actions.</p>
+  <p>Selected message content and owner feedback may be used to improve a private classifier personalized to that same owner. Google user data is not used to create, train, or improve a shared or general-purpose machine-learning or artificial-intelligence model.</p>
+
+  <h2>Processing and sharing</h2>
+  <p>Data is processed on systems controlled by the owner. When enabled for a feature, limited content may also be processed by Google services, including Gmail and Google Cloud/Vertex AI. A user-requested unsubscribe action may contact the unsubscribe endpoint identified by the sender. The application does not sell Google user data, use it for advertising, provide it to data brokers, or share it for credit or lending decisions.</p>
+  <p>Data may otherwise be disclosed only when necessary to protect the application or account, investigate a security incident, comply with law, or honor the owner’s explicit direction.</p>
+
+  <h2>Storage, security, and retention</h2>
+  <p>OAuth tokens and local operational data are stored on private systems with operating-system access controls and encryption at rest. External network traffic uses encrypted transport. Access is limited to the account owner and systems the owner controls.</p>
+  <p>Message-derived content may be retained in local review queues and personalized-classifier records for as long as needed to provide those features. Action audit records are designed to retain identifiers and minimized metadata rather than message bodies. Tokens are retained until access is revoked, the application is decommissioned, or the owner requests deletion. Local data is removed when it is no longer needed under the owner’s operational, security, and compliance requirements.</p>
+
+  <h2>Owner choices and deletion</h2>
+  <p>The owner can stop future access at any time by revoking Ahsoka Inbox Assistant from the <a href="https://myaccount.google.com/connections">Google Account third-party connections page</a>. The owner can also request deletion of locally stored Google-derived data or OAuth tokens by contacting the address below. Revocation stops new API access but does not itself delete data already stored locally; a deletion request covers those local copies.</p>
+
+  <h2>Public website data</h2>
+  <p>This informational website does not intentionally use advertising cookies or analytics. Its hosting provider may process routine request information, such as IP address and browser details, to deliver and secure the site.</p>
+
+  <h2>Google Limited Use disclosure</h2>
+  <p>The use of information received from Google Workspace APIs adheres to the <a href="https://developers.google.com/workspace/workspace-api-user-data-developer-policy">Google Workspace API User Data and Developer Policy</a>, including the Limited Use requirements.</p>
+
+  <h2>Changes</h2>
+  <p>This policy may be updated when the application’s functionality or data practices change. The effective date at the top will be revised when a material update is published.</p>
+
+  <h2>Contact</h2>
+  <p>For privacy, authorization, or deletion questions, email <a href="mailto:mmauro286@gmail.com">mmauro286@gmail.com</a>.</p>
+</AppInfoLayout>

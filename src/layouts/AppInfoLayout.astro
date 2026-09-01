@@ -1,0 +1,193 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  activePage?: 'overview' | 'privacy' | 'terms';
+}
+
+const {
+  title,
+  description,
+  canonical,
+  activePage = 'overview',
+} = Astro.props;
+
+const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonicalURL}>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ahsoka Inbox Assistant">
+  <meta property="og:url" content={canonicalURL}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="app-info-body">
+  <header class="app-info-header">
+    <a class="app-info-brand" href="/ahsoka-inbox">
+      <span>Ahsoka Inbox Assistant</span>
+      <small>Private personal-use application</small>
+    </a>
+    <nav aria-label="Ahsoka Inbox Assistant navigation">
+      <a href="/ahsoka-inbox" aria-current={activePage === 'overview' ? 'page' : undefined}>Overview</a>
+      <a href="/ahsoka-inbox/privacy" aria-current={activePage === 'privacy' ? 'page' : undefined}>Privacy</a>
+      <a href="/ahsoka-inbox/terms" aria-current={activePage === 'terms' ? 'page' : undefined}>Terms</a>
+    </nav>
+  </header>
+
+  <main class:list={['app-info-main', { 'app-info-policy': activePage !== 'overview' }]}>
+    <slot />
+  </main>
+
+  <footer class="app-info-footer">
+    <p>&copy; {new Date().getFullYear()} Matthew Mauro. Ahsoka Inbox Assistant is an independent personal-use application and is not affiliated with or endorsed by Google.</p>
+    <p><a href="/">Return to Mind Menders Psychiatric Care</a></p>
+  </footer>
+</body>
+</html>
+
+<style is:global>
+  .app-info-body {
+    --app-ink: #0a192f;
+    --app-muted: #526779;
+    --app-surface: #ffffff;
+    --app-paper: #f8fbfa;
+    --app-accent: #158a7d;
+    --app-accent-soft: #e8f5f3;
+    --app-line: #dbe7e4;
+    min-height: 100vh;
+    color: var(--app-ink);
+    background:
+      radial-gradient(circle at top right, rgba(27, 169, 154, .14), transparent 34rem),
+      var(--app-paper);
+  }
+
+  .app-info-header,
+  .app-info-main,
+  .app-info-footer {
+    width: min(1120px, calc(100% - 2.5rem));
+    margin-inline: auto;
+  }
+
+  .app-info-header {
+    min-height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--app-line);
+  }
+
+  .app-info-brand {
+    display: flex;
+    flex-direction: column;
+    color: var(--app-ink);
+    font-weight: 750;
+    line-height: 1.2;
+    text-decoration: none;
+  }
+
+  .app-info-brand small {
+    margin-top: .25rem;
+    color: var(--app-muted);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .app-info-header nav { display: flex; gap: 1.2rem; }
+  .app-info-header nav a { color: var(--app-ink); font-weight: 650; text-decoration: none; }
+  .app-info-header nav a:hover { color: var(--app-accent); }
+  .app-info-header nav a[aria-current='page'] { color: var(--app-accent); text-decoration: underline; text-underline-offset: .38rem; }
+
+  .app-info-main { padding-block: 4.5rem 5rem; }
+
+  .app-info-hero { max-width: 900px; padding-block: 1.5rem 4.5rem; }
+  .app-info-kicker {
+    display: inline-block;
+    margin: 0 0 1rem;
+    padding: .35rem .75rem;
+    color: var(--app-accent);
+    background: var(--app-accent-soft);
+    border-radius: 999px;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .app-info-main h1,
+  .app-info-main h2,
+  .app-info-main h3 { color: var(--app-ink); }
+  .app-info-main h1 { max-width: 18ch; margin-bottom: 1.5rem; font-size: clamp(2.7rem, 7vw, 5.4rem); letter-spacing: -.045em; }
+  .app-info-main h2 { margin: 3.5rem 0 1.25rem; font-size: clamp(1.8rem, 4vw, 2.65rem); }
+  .app-info-main h3 { margin-bottom: .7rem; font-size: 1.3rem; }
+  .app-info-main p,
+  .app-info-main li { color: var(--app-muted); }
+  .app-info-lede { max-width: 780px; font-size: clamp(1.12rem, 2vw, 1.38rem); line-height: 1.7; }
+
+  .app-info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .app-info-card,
+  .app-info-disclosure,
+  .app-info-contact {
+    padding: 1.65rem;
+    background: rgba(255, 255, 255, .94);
+    border: 1px solid var(--app-line);
+    border-radius: 18px;
+    box-shadow: 0 16px 50px rgba(10, 25, 47, .06);
+  }
+  .app-info-disclosure { margin-top: 4rem; }
+  .app-info-disclosure h2,
+  .app-info-contact h2 { margin-top: 0; }
+  .app-info-contact { margin-top: 1rem; }
+
+  .app-info-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.5rem; }
+  .app-info-button {
+    display: inline-block;
+    padding: .72rem 1.05rem;
+    color: #fff;
+    background: var(--app-accent);
+    border: 2px solid var(--app-accent);
+    border-radius: 999px;
+    font-weight: 750;
+    text-decoration: none;
+  }
+  .app-info-button:hover { color: #fff; background: #0e6b60; border-color: #0e6b60; }
+  .app-info-button.secondary { color: var(--app-accent); background: transparent; }
+  .app-info-button.secondary:hover { color: #fff; background: var(--app-accent); }
+
+  .app-info-policy { max-width: 840px; }
+  .app-info-policy h1 { max-width: none; font-size: clamp(2.7rem, 7vw, 4.7rem); }
+  .app-info-policy h2 { margin-top: 2.8rem; font-size: 1.7rem; }
+  .app-info-policy ul { margin: 1rem 0 1.5rem 1.4rem; list-style: disc; }
+  .app-info-policy li + li { margin-top: .55rem; }
+
+  .app-info-footer {
+    padding-block: 1.8rem 2.5rem;
+    color: var(--app-muted);
+    border-top: 1px solid var(--app-line);
+    font-size: .9rem;
+  }
+  .app-info-footer p { margin-bottom: .35rem; }
+
+  @media (max-width: 760px) {
+    .app-info-header { align-items: flex-start; flex-direction: column; justify-content: center; padding-block: 1.1rem; }
+    .app-info-header nav { gap: 1rem; }
+    .app-info-main { padding-top: 2.8rem; }
+    .app-info-hero { padding-bottom: 3rem; }
+    .app-info-grid { grid-template-columns: 1fr; }
+    .app-info-main h1 { font-size: clamp(2.5rem, 13vw, 4rem); }
+  }
+</style>
